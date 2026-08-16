@@ -1,6 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
 .home {
   min-height: 100vh;
-  padding: 40px;
+ 
   background-color: #f8f5fc;
   font-family: Arial, sans-serif;
 }

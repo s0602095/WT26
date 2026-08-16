@@ -1,15 +1,107 @@
-h1 {
-  text-align: center;
-  margin-top: 40px;
+.home {
+  min-height: 100vh;
+  padding: 40px;
+  background-color: #f8f5fc;
+  font-family: Arial, sans-serif;
 }
 
-p {
+/* Überschrift */
+
+.hero {
   text-align: center;
+  padding: 40px 20px;
+}
+
+.hero h1 {
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #666;
+}
+
+/* Willkommen */
+
+.welcome {
+  text-align: center;
+  margin: 20px auto 40px;
+}
+
+.welcome h2 {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.welcome p {
+  color: #666;
+  font-size: 17px;
+}
+
+/* Statistik */
+
+.statistics {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  margin-bottom: 50px;
+}
+
+.stat-card {
+  width: 180px;
+  padding: 25px;
+  text-align: center;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px #ddd;
+}
+
+.number {
+  display: block;
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.label {
+  color: #666;
+}
+
+/* Zuletzt angesehen */
+
+.recent {
+  max-width: 800px;
+  margin: auto;
+}
+
+.recent h2 {
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.drama-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.drama-card {
+  width: 250px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px #ddd;
+}
+
+.drama-card h3 {
+  font-size: 21px;
+}
+
+.drama-card p {
   font-size: 18px;
 }
 
-button {
-  display: block;
-  margin: 20px auto;
-  padding: 10px 20px;
+.drama-card span {
+  color: #666;
 }

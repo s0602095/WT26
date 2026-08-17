@@ -1,0 +1,105 @@
+.dramas-page{
+    min-width: 100vh;
+    padding: 45px 30px;
+    background-color: #f8f5fc;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.page-header{
+    text-align: center;
+    margin-bottom: 35px;
+
+}
+.page-header h1{
+    font-size: 34px;
+    margin-bottom: 10px;
+
+}
+.page-header p{
+    color: #777;
+    font-size: 17px;
+}
+/*filter */
+
+.filters{
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 40px;
+}
+.filters button{
+    padding: 10px 18px;
+    border: none;
+    border-radius: 10px;
+    background-color: white;
+    color: #555;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.filters button:hover{
+    background-color: #eee5ff;
+    color: #8b5cf6;
+}
+.filters button.active{
+    background-color: #8b5cf6;
+    color: white;
+}
+
+/* Drama-Karten */
+.drama-container{
+    max-width: 900px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.drama-card{
+    padding: 25px;
+    background-color: white;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px #ddd;
+    transition: 0.2s;
+}
+
+.drama-card:hover{
+    transform: translateY(-5px);
+}
+
+.drama-card h2{
+    margin-top: 0;
+    font-size: 21px;
+}
+
+.rating{
+    font-size: 18px;
+}
+
+.status{
+    margin-bottom: 20px;
+}
+.watched{
+    color: #16a34a;
+}
+.watching{
+    color: #8b5cf6;
+}
+.open{
+    color: #777;
+}
+
+/* Details-Button */
+
+.drama-card button {
+  padding: 9px 18px;
+  border: none;
+  border-radius: 9px;
+  background-color: #8b5cf6;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.drama-card button:hover {
+  background-color: #7c3aed;
+}

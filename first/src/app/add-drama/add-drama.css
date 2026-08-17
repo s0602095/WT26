@@ -1,0 +1,38 @@
+body{
+    margin: 0;
+}
+.add-drama{
+    width: 400px;
+    margin: 40px auto;
+    padding: 25px;
+    text-align: center;
+    border-radius: 15px;
+    background-color: #f8f0ff;
+}
+.add-drama h2{
+    margin-bottom: 10px;
+}
+.add-drama p{
+    margin-bottom: 25px;
+}
+.add-drama label{
+    display: block;
+    text-align: left;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+.add-drama input{
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.add-drama button{
+    margin-top: 25px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}

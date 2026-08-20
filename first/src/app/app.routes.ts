@@ -4,6 +4,7 @@ import { Dramas } from './dramas/dramas';
 import { AddDrama } from './add-drama/add-drama';
 import { Favoriten } from './favoriten/favoriten';
 import { DramaDetail } from './drama-detail/drama-detail';
+import { EditDrama } from './edit-drama/edit-drama';
 
 export const routes: Routes = [
   {
@@ -25,5 +26,9 @@ export const routes: Routes = [
   {
     path: 'drama-detail',
     component: DramaDetail
+  },
+  {
+    path: 'edit-drama',
+    component: EditDrama
   }
 ];

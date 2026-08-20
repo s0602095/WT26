@@ -1,9 +1,13 @@
 import { Component } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-dramas',
-  imports: [],
+  standalone: true,
+  imports: [RouterLink],
   templateUrl: './dramas.html',
-  styleUrl: './dramas.css',
+  styleUrl: './dramas.css'
 })
-export class Dramas {}
+export class Dramas {
+
+}

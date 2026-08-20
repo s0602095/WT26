@@ -5,6 +5,7 @@ import { AddDrama } from './add-drama/add-drama';
 import { Favoriten } from './favoriten/favoriten';
 import { DramaDetail } from './drama-detail/drama-detail';
 import { EditDrama } from './edit-drama/edit-drama';
+import { DeleteDrama } from './delete-drama/delete-drama';
 
 export const routes: Routes = [
   {
@@ -24,11 +25,15 @@ export const routes: Routes = [
     component: Favoriten
   },
   {
-    path: 'drama-detail',
-    component: DramaDetail
-  },
+  path: 'drama-detail',
+  component: DramaDetail
+},
   {
     path: 'edit-drama',
     component: EditDrama
+  },
+  {
+    path: 'delete-drama',
+    component: DeleteDrama
   }
 ];

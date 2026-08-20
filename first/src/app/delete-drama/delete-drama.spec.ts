@@ -1,17 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DramaCreate } from './drama-create';
+import { DeleteDrama } from './delete-drama';
 
-describe('DramaCreate', () => {
-  let component: DramaCreate;
-  let fixture: ComponentFixture<DramaCreate>;
+describe('DeleteDrama', () => {
+  let component: DeleteDrama;
+  let fixture: ComponentFixture<DeleteDrama>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DramaCreate],
+      imports: [DeleteDrama],
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DramaCreate);
+    fixture = TestBed.createComponent(DeleteDrama);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });

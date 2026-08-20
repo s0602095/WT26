@@ -1,29 +1,59 @@
 .detail-container {
-  max-width: 800px;
+  max-width: 900px;
   margin: 40px auto;
   padding: 20px;
 }
 
-h1 {
+.detail-container h1 {
   text-align: center;
   margin-bottom: 30px;
 }
 
 .drama-card {
+  display: flex;
+  gap: 30px;
+  background: white;
   padding: 25px;
   border-radius: 15px;
-  box-shadow: 0 2px 10px #ddd;
-  background-color: white;
+  box-shadow: 0 4px 15px #ddd;
 }
 
-h2 {
-  color: #d65db1;
+.drama-card img {
+  width: 250px;
+  height: 350px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.drama-info {
+  flex: 1;
+}
+
+.drama-info h2 {
+  font-size: 30px;
+  margin-top: 0;
+}
+
+.drama-info p {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.buttons {
+  margin-top: 25px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 button {
-  margin-top: 20px;
-  padding: 10px 20px;
+  padding: 10px 18px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  font-size: 15px;
+}
+
+button:hover {
+  transform: scale(1.03);
 }

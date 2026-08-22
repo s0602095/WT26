@@ -1,47 +1,46 @@
-
-  
 <div class="detail-container">
 
   <h1>🎬 Drama Details</h1>
 
   <div class="drama-card">
 
-    <img src="../bilder/lovely-runner.png" alt="Lovely Runner" width="300">
+    <h2>{{ name }}</h2>
 
-    <div class="drama-info">
+    <p>
+      <strong>Status:</strong> {{ status }}
+    </p>
 
-      <h2>Lovely Runner</h2>
+    <p>
+      <strong>Bewertung:</strong> {{ bewertung }}
+    </p>
 
-      <p><strong>Status:</strong> Schaue ich gerade 👀</p>
+    <p>
+      <strong>Folgen:</strong> {{ folgen }}
+    </p>
 
-      <p><strong>Bewertung:</strong> ⭐⭐⭐⭐⭐</p>
+    <p>
+      <strong>Genre:</strong> {{ genre }}
+    </p>
 
-      <p><strong>Folgen:</strong> 16</p>
+    <h3>Beschreibung</h3>
 
-      <p><strong>Genre:</strong> Romance · Fantasy · Comedy</p>
+    <p>
+      {{ beschreibung }}
+    </p>
 
-      <h3>Beschreibung</h3>
+    <div class="buttons">
 
-      <p>
-        Lovely Runner ist ein romantisches K-Drama
-        über Im Sol und Ryu Sun-jae.
-      </p>
+      <button routerLink="/edit-drama">
+        ✏️ Bearbeiten
+      </button>
 
-      <div class="buttons">
+      <button routerLink="/delete-drama">
+        🗑️ Löschen
+      </button>
 
-        <button routerLink="/edit-drama">
-          ✏️ Bearbeiten
-        </button>
-
-        <button routerLink="/delete-drama">
-          🗑️ Löschen
-        </button>
-
-        <button routerLink="/dramas">
-          ← Zurück
-        </button>
-
-      </div>
+      <button routerLink="/dramas">
+        ← Zurück
+      </button>
 
     </div>
 

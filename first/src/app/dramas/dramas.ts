@@ -9,5 +9,9 @@ import { RouterLink } from '@angular/router';
   styleUrl: './dramas.css'
 })
 export class Dramas {
+  filter = 'alle';
 
+  setFilter(filter: string){
+    this.filter = filter;
+  }
 }

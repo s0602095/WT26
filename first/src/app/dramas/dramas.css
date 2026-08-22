@@ -1,8 +1,8 @@
 
 
 
-.dramas-page{
-    min-width: 100vh;
+.dramas-page {
+    min-height: 100vh;
     padding: 45px 30px;
     background-color: #f8f5fc;
     font-family: Arial, Helvetica, sans-serif;
@@ -63,6 +63,9 @@
     border-radius: 16px;
     box-shadow: 0 4px 15px #ddd;
     transition: 0.2s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .drama-card:hover{
@@ -105,4 +108,17 @@
 
 .drama-card button:hover {
   background-color: #7c3aed;
+}
+
+
+.drama-info {
+    flex: 1;
+}
+
+.drama-card img {
+    width: 90px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-left: 20px;
 }

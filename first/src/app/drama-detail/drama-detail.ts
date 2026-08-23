@@ -16,11 +16,15 @@ export class DramaDetail {
   folgen = '';
   genre = '';
   beschreibung = '';
+  bild = '';
+  dramaId = '';
 
   constructor(private route: ActivatedRoute) {
 
     const dramaName = this.route.snapshot.paramMap.get('name');
 
+     this.dramaId = dramaName || '';
+      
     if (dramaName === 'lovely-runner') {
       this.name = 'Lovely Runner';
       this.status = 'Geschaut ✅';
@@ -28,6 +32,7 @@ export class DramaDetail {
       this.folgen = '16';
       this.genre = 'Romance · Fantasy · Comedy';
       this.beschreibung = 'Lovely Runner ist ein romantisches K-Drama über Im Sol und Ryu Sun-jae.';
+      this.bild = 'bilder/lovely-runner.jpeg';
     }
 
     if (dramaName === 'my-bias-my-boss') {
@@ -37,6 +42,7 @@ export class DramaDetail {
       this.folgen = '12';
       this.genre = 'Romance · Comedy';
       this.beschreibung = 'Eine romantische Geschichte über Arbeit, Liebe und unerwartete Gefühle.';
+      this.bild = '/bilder/My_Bias,_My_Boss.png'; 
     }
 
     if (dramaName === 'agent-kim-reactivated') {
@@ -46,6 +52,7 @@ export class DramaDetail {
       this.folgen = '12';
       this.genre = 'Action · Romance · Comedy';
       this.beschreibung = 'Eine spannende Geschichte mit Action, Humor und Romantik.';
+      this.bild = '/bilder/Agend.jpeg';
     }
 
     if (dramaName === 'my-demon') {
@@ -55,6 +62,7 @@ export class DramaDetail {
       this.folgen = '16';
       this.genre = 'Fantasy · Romance · Comedy';
       this.beschreibung = 'Ein Dämon und eine Geschäftsfrau kommen sich auf unerwartete Weise näher.';
+      this.bild = '/bilder/My_Demon.jpg';
     }
 
     if (dramaName === 'bon-appetit-your-majesty') {
@@ -64,6 +72,7 @@ export class DramaDetail {
       this.folgen = '12';
       this.genre = 'Romance · Historical · Fantasy';
       this.beschreibung = 'Eine Köchin findet sich plötzlich in einer außergewöhnlichen Welt wieder.';
+      this.bild = '/bilder/bon-appetit.jpg';
     }
 
     if (dramaName === 'business-proposal') {
@@ -73,6 +82,7 @@ export class DramaDetail {
       this.folgen = '12';
       this.genre = 'Romance · Comedy';
       this.beschreibung = 'Ein Blind Date entwickelt sich zu einer überraschenden Liebesgeschichte.';
+      this.bild = '/bilder/Business_Proposal.jpg';
     }
 
     if (dramaName === 'alchemy-of-souls') {
@@ -82,6 +92,7 @@ export class DramaDetail {
       this.folgen = '20';
       this.genre = 'Fantasy · Romance · Action';
       this.beschreibung = 'Eine magische Geschichte über Liebe, Schicksal und Seelenwechsel.';
+      this.bild = '/bilder/alchemy of souls.jpg';
     }
 
     if (dramaName === 'twinkling-watermelon') {
@@ -93,14 +104,15 @@ export class DramaDetail {
       this.beschreibung = 'Ein junger Musiker reist durch die Zeit und entdeckt seine Familie und die Liebe.';
     }
 
-    if (dramaName === 'queen-of-tears') {
-      this.name = 'Queen of Tears';
-      this.status = 'Geschaut ✅';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '16';
-      this.genre = 'Romance · Drama · Comedy';
-      this.beschreibung = 'Ein Ehepaar versucht, seine Beziehung trotz großer Schwierigkeiten zu retten.';
-    }
+    if (dramaName === 'twinkling-watermelon') {
+    this.name = 'Twinkling Watermelon';
+    this.status = 'Geschaut ✅';
+    this.bewertung = '⭐⭐⭐⭐⭐';
+    this.folgen = '16';
+    this.genre = 'Romance · Fantasy · Music';
+    this.beschreibung = 'Ein junger Musiker reist durch die Zeit und entdeckt seine Familie und die Liebe.';
+    this.bild = '/bilder/Twinkling Watermelon.jpg';
+   }
 
     if (dramaName === 'true-beauty') {
       this.name = 'True Beauty';
@@ -109,7 +121,10 @@ export class DramaDetail {
       this.folgen = '16';
       this.genre = 'Romance · Comedy · School';
       this.beschreibung = 'Eine Schülerin entdeckt mit Make-up eine neue Seite an sich und findet unerwartete Liebe.';
+      this.bild = '/bilder/True Beauty.jpg';
     }
+
+    
 
   }
 }

@@ -1,9 +1,31 @@
 <div class="delete-container">
-    <h1>🗑️ Drama löschen</h1>
-        <div class="delete-card">
-            <h2>Lovely Runner</h2>
-            <p>Möchtest du dieses Drama wirklich löschen?</p>
-            <button class="delete-button">🗑️ Ja, löscher</button>
-            <button class="cancel-button">← Abbrechen</button>
-        </div>
+
+  <h1>🗑️ Drama löschen</h1>
+
+  <div class="delete-card">
+
+    <h2>Drama löschen?</h2>
+
+    <p>
+      Möchtest du dieses Drama wirklich löschen?
+    </p>
+
+    <p class="drama-name">
+      {{ name }}
+    </p>
+
+    <div class="buttons">
+
+      <button class="delete-button">
+        🗑️ Löschen
+      </button>
+
+      <button routerLink="/dramas">
+        ✖ Abbrechen
+      </button>
+
+    </div>
+
+  </div>
+
 </div>

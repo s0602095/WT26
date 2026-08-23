@@ -4,32 +4,39 @@
 
   <div class="edit-card">
 
-    <label>Drama Name</label>
-    <input type="text" value="Lovely Runner">
+    <label>Name</label>
+    <input type="text" [(ngModel)]="name">
 
     <label>Status</label>
-    <select>
-      <option>Schaue ich gerade</option>
+    <select [(ngModel)]="status">
       <option>Geschaut</option>
-      <option>Noch nicht angefangen</option>
+      <option>Gerade dabei</option>
+      <option>Noch offen</option>
     </select>
 
     <label>Bewertung</label>
-    <select>
-      <option>⭐⭐⭐⭐⭐</option>
-      <option>⭐⭐⭐⭐</option>
-      <option>⭐⭐⭐</option>
-      <option>⭐⭐</option>
-      <option>⭐</option>
-    </select>
+    <input type="text" [(ngModel)]="bewertung">
 
-    <label>Anzahl Folgen</label>
-    <input type="number" value="16">
+    <label>Folgen</label>
+    <input type="number" [(ngModel)]="folgen">
+
+    <label>Genre</label>
+    <input type="text" [(ngModel)]="genre">
 
     <label>Beschreibung</label>
-    <textarea>Lovely Runner ist ein romantisches K-Drama über Im Sol und Ryu Sun-jae.</textarea>
+    <textarea [(ngModel)]="beschreibung"></textarea>
 
-    <button>💾 Speichern</button>
+    <div class="buttons">
+
+      <button class="save">
+        💾 Speichern
+      </button>
+
+      <button routerLink="/dramas">
+        ✖ Abbrechen
+      </button>
+
+    </div>
 
   </div>
 

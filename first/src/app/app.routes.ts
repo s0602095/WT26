@@ -2,7 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home';
 import { Dramas } from './dramas/dramas';
 import { AddDrama } from './add-drama/add-drama';
-import { Favoriten } from './favoriten/favoriten';
 import { DramaDetail } from './drama-detail/drama-detail';
 import { EditDrama } from './edit-drama/edit-drama';
 import { DeleteDrama } from './delete-drama/delete-drama';
@@ -21,10 +20,6 @@ export const routes: Routes = [
     component: AddDrama
   },
   {
-    path: 'favoriten',
-    component: Favoriten
-  },
-  {
   path: 'drama-detail',
   component: DramaDetail
 },
@@ -39,5 +34,9 @@ export const routes: Routes = [
   {
     path: 'drama-detail/:name',
     component: DramaDetail
+  },
+  {
+    path: 'edit-drama/:name',
+    component: EditDrama
   }
 ];

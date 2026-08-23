@@ -38,5 +38,9 @@ export const routes: Routes = [
   {
     path: 'edit-drama/:name',
     component: EditDrama
+  },
+  {
+    path: 'delete-drama/:name',
+    component: DeleteDrama
   }
 ];

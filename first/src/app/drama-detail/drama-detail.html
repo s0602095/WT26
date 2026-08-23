@@ -55,9 +55,9 @@
      ✏️ Bearbeiten
      </button>
 
-      <button routerLink="/delete-drama">
-        🗑️ Löschen
-      </button>
+      <button [routerLink]="['/delete-drama', dramaId]">
+     🗑️ Löschen
+     </button>
 
       <button routerLink="/dramas">
         ← Zurück

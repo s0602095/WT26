@@ -9,7 +9,9 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
   styleUrl: './edit-drama.css',
 })
 export class EditDrama {
-   name = '';
+
+  //Diese Variable enthalten die Daten des ausgewählten Dramas
+  name = '';
   status = '';
   bewertung = '';
   folgen = '';
@@ -18,8 +20,11 @@ export class EditDrama {
 
   constructor(private route:ActivatedRoute) {
 
+    // Holt den Namen Des Dramas aus der URL
+    //Beispiel: /edit-drama/twinkling-watermelon
     const dramaName = this.route.snapshot.paramMap.get('name');
 
+    //Wenn Lovely Runner ausgewählt wurde, werden die passenden Daten geladen
     if (dramaName === 'lovely-runner') {
       this.name = 'Lovely Runner';
       this.status = 'Geschaut ✅';

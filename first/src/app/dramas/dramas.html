@@ -5,6 +5,7 @@
     <p>Deine K-Dramas im Überblick</p>
   </section>
 
+  <!-- Filter -->
   <section class="filters">
 
     <button [class.active]="filter === 'alle'"
@@ -29,155 +30,70 @@
 
   </section>
 
-
   <section class="drama-container">
 
-    @if (filter === 'alle' || filter === 'geschaut') {
-      <div class="drama-card">
+    <!-- Dramas aus MongoDB anzeigen -->
+    @for (drama of dramas; track drama._id) {
 
-         <div class="drama-info">
-          <h2>Lovely Runner</h2>
-          <p class="rating">⭐ 10/10</p>
-          <p class="status watched">✅ Geschaut</p>
+      <!-- Prüfen, ob das Drama zum Filter passt -->
+      @if (zeigeDrama(drama)) {
 
-          <a routerLink="/drama-detail/lovely-runner">
-          <button>Details</button>
-          </a>
-      </div>
-        <img src="bilder/lovely-runner.jpeg" alt="Lovely Runner" >
-      </div>
-    }
+        <div class="drama-card">
 
+          <div class="drama-info">
 
-    @if (filter === 'alle' || filter === 'dabei') {
-      <div class="drama-card">
-        <div class="drama-info">
-        <h2>My Bias, My Boss</h2>
-        <p class="rating">⭐ 9/10</p>
-        <p class="status watching">👀 Gerade dabei</p>
+            <!-- Name -->
+            <h2>{{ drama.name }}</h2>
 
-       <a routerLink="/drama-detail/my-bias-my-boss">
-      <button>Details</button>
-      </a>
-      </div>
-      <img src="/bilder/My_Bias,_My_Boss.png" alt="My Bias,My Boss">
-      </div>
-    }
+            <!-- Bewertung -->
+            <p class="rating">
+              ⭐ {{ drama.bewertung }}/10
+            </p>
 
+            <!-- Status -->
+            <p class="status"
+               [class.watched]="drama.status === 'Geschaut'"
+               [class.watching]="drama.status === 'Schaue ich gerade'"
+               [class.open]="drama.status === 'Noch offen'">
 
-    @if (filter === 'alle' || filter === 'offen') {
-      <div class="drama-card">
-        <div class="drama-info">
-        <h2>Agent Kim Reactivated</h2>
-        <p class="rating">⭐ 9/10</p>
-        <p class="status open">⏳ Noch offen</p>
+              @if (drama.status === 'Geschaut') {
+                ✅
+              }
 
-        <a routerLink="/drama-detail/agent-kim-reactivated">
-        <button>Details</button>
-        </a>
-      </div>
-      <img src="/bilder/Agend.jpeg" alt="agent kim Reactivated">
-      </div>
-    }
+              @if (drama.status === 'Schaue ich gerade') {
+                👀
+              }
 
+              @if (drama.status === 'Noch offen') {
+                ⏳
+              }
 
-    @if (filter === 'alle' || filter === 'geschaut') {
-      <div class="drama-card">
-        <div class="drama-info">
-        <h2>My Demon</h2>
-        <p class="rating">⭐ 9/10</p>
-        <p class="status watched">✅ Geschaut</p>
+              {{ drama.status }}
 
-        <a routerLink="/drama-detail/my-demon">
-        <button>Details</button>
-        </a>
-      </div>
-      <img src="/bilder/My_Demon.jpg" alt="My Demon">
-      </div>
-    }
+            </p>
 
+            <!-- Folgen -->
+            <p>
+              Folgen: {{ drama.folgen }}
+            </p>
 
-    @if (filter === 'alle' || filter === 'dabei') {
-      <div class="drama-card">
-        <div class="drama-info">
-        <h2>Bon Appétit, Your Majesty</h2>
-        <p class="rating">⭐ 9/10</p>
-        <p class="status watching">👀 Gerade dabei</p>
+            <!-- Details -->
+            <a [routerLink]="['/drama-detail', drama.name]">
+              <button>Details</button>
+            </a>
 
-        <a routerLink="/drama-detail/bon-appetit-your-majesty">
-       <button>Details</button>
-        </a>
-      </div>
-      <img src="/bilder/bon-appetit.jpg" alt="Bon Appétit, Your Majesty">
-      </div>
-    }
+          </div>
 
+          <!-- Bild -->
+          <img [src]="'bilder/' + drama.bild"
+               [alt]="drama.name">
 
-    @if (filter === 'alle' || filter === 'geschaut') {
-      <div class="drama-card">
-        <div class="drama-info">
-        <h2>Business Proposal</h2>
-        <p class="rating">⭐ 10/10</p>
-        <p class="status watched">✅ Geschaut</p>
+        </div>
 
-        <a routerLink="/drama-detail/business-proposal">
-       <button>Details</button>
-        </a>
-      </div>
-      <img src="/bilder/Business_Proposal.jpg" alt="Business Proposal">
-      </div>
-    }
+      }
 
-
-    @if (filter === 'alle' || filter === 'geschaut') {
-      <div class="drama-card">
-        <div class="drama-info">
-        <h2>Alchemy of Souls</h2>
-        <p class="rating">⭐ 9/10</p>
-        <p class="status watched">✅ Geschaut</p>
-
-        <a routerLink="/drama-detail/alchemy-of-souls">
-        <button>Details</button>
-        </a>
-      </div>
-      <img src="/bilder/alchemy of souls.jpg" alt="Alchemy of Souls">
-      </div>
-    }
-
-
-    @if (filter === 'alle' || filter === 'geschaut') {
-      <div class="drama-card">
-        <div class="drama-info">
-        <h2>Twinkling Watermelon</h2>
-        <p class="rating">⭐ 10/10</p>
-        <p class="status watched">✅ Geschaut</p>
-
-        <a routerLink="/drama-detail/twinkling-watermelon">
-        <button>Details</button>
-        </a>
-      </div>
-      <img src="/bilder/Twinkling Watermelon.jpg" alt="twinkling Watermelon">
-      </div>
-    }
-
-
-
-    @if (filter === 'alle' || filter === 'dabei') {
-      <div class="drama-card">
-        <div class="drama-info">
-        <h2>True Beauty</h2>
-        <p class="rating">⭐ 9/10</p>
-        <p class="status watching">👀 Gerade dabei</p>
-
-        <a routerLink="/drama-detail/true-beauty">
-        <button>Details</button>
-        </a>
-      </div>
-      <img src="/bilder/True Beauty.jpg" alt="True Beauty">
-      </div>
     }
 
   </section>
 
 </div>
-

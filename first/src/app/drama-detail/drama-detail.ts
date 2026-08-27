@@ -10,6 +10,7 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 })
 export class DramaDetail {
 
+  // Diese Variablen speichern die Informationen des ausgewählten Dramas
   name = '';
   status = '';
   bewertung = '';
@@ -17,12 +18,17 @@ export class DramaDetail {
   genre = '';
   beschreibung = '';
   bild = '';
+
+  //Wird für die Buttons Bearbeieten und Löschen verwendet
   dramaId = '';
 
   constructor(private route: ActivatedRoute) {
 
+
+    //Holt den Name des Dramas aus der URL
     const dramaName = this.route.snapshot.paramMap.get('name');
 
+    // Speichert den Namen für die Bearbeiten- und Löschen-Buttons
      this.dramaId = dramaName || '';
       
     if (dramaName === 'lovely-runner') {

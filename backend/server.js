@@ -1,23 +1,21 @@
 require('dotenv').config();
 
 const express = require('express');
-const mongoose = require('mongoose');
+const cors = require('cors');
 const routes = require('./routes');
 
 const app = express();
 const PORT = 3000;
 
+// CORS für Angular erlauben
+app.use(cors());
+
+// JSON-Daten erlauben
 app.use(express.json());
+
+// Routes verwenden
 app.use('/', routes);
 
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => {
-        console.log('MongoDB verbunden');
-
-        app.listen(PORT, () => {
-            console.log(`Server läuft auf Port ${PORT}`);
-        });
-    })
-    .catch((error) => {
-        console.log('MongoDB Fehler:', error);
-    });
+app.listen(PORT, () => {
+    console.log(`Server started and listening on port ${PORT} ...`);
+});

@@ -57,4 +57,23 @@ router.put('/dramas/:id', async (req, res) => {
     res.send(result);
 });
 
+// Drama löschen
+router.delete('/dramas/:id', async (req, res) => {
+    await client.connect();
+
+    // Datenbank "kdrama" auswählen
+    const db = client.db('kdrama');
+
+    // ID des Dramas auswählen
+    const id = new ObjectId(req.params.id);
+
+    // Drama aus der Collection löschen
+    const result = await db.collection('dramas').deleteOne({
+        _id: id
+    });
+
+    // Ergebnis zurückgeben
+    res.send(result);
+});
+
 module.exports = router;

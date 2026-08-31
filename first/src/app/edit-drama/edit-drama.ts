@@ -1,129 +1,89 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-edit-drama',
-  imports: [RouterLink, FormsModule],
+  standalone: true,
+  imports: [FormsModule, RouterLink],
   templateUrl: './edit-drama.html',
-  styleUrl: './edit-drama.css',
+  styleUrl: './edit-drama.css'
 })
-export class EditDrama {
+export class EditDrama implements OnInit {
 
-  //Diese Variable enthalten die Daten des ausgewählten Dramas
   name = '';
   status = '';
   bewertung = '';
   folgen = '';
   genre = '';
   beschreibung = '';
+  dramaId = '';
 
-  constructor(private route:ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private cdr: ChangeDetectorRef
+  ) {}
 
-    // Holt den Namen Des Dramas aus der URL
-    //Beispiel: /edit-drama/twinkling-watermelon
-    const dramaName = this.route.snapshot.paramMap.get('name');
+  ngOnInit() {
 
-    //Wenn Lovely Runner ausgewählt wurde, werden die passenden Daten geladen
-    if (dramaName === 'lovely-runner') {
-      this.name = 'Lovely Runner';
-      this.status = 'Geschaut ✅';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '16';
-      this.genre = 'Romance · Fantasy · Comedy';
-      this.beschreibung = 'Lovely Runner ist ein romantisches K-Drama über Im Sol und Ryu Sun-jae.';
-     
-    }
+    const id = this.route.snapshot.paramMap.get('id');
 
-    if (dramaName === 'my-bias-my-boss') {
-      this.name = 'My Bias, My Boss';
-      this.status = 'Schaue ich gerade 👀';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '12';
-      this.genre = 'Romance · Comedy';
-      this.beschreibung = 'Eine romantische Geschichte über Arbeit, Liebe und unerwartete Gefühle.';
+    console.log('EDIT ID:', id);
 
-    }
+    this.http.get<any[]>('http://localhost:3000/dramas')
+      .subscribe(data => {
 
-    if (dramaName === 'agent-kim-reactivated') {
-      this.name = 'Agent Kim Reactivated';
-      this.status = 'Noch offen ⏳';
-      this.bewertung = '⭐⭐⭐⭐';
-      this.folgen = '12';
-      this.genre = 'Action · Romance · Comedy';
-      this.beschreibung = 'Eine spannende Geschichte mit Action, Humor und Romantik.';
-     
-    }
+        console.log('DATEN:', data);
 
-    if (dramaName === 'my-demon') {
-      this.name = 'My Demon';
-      this.status = 'Geschaut ✅';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '16';
-      this.genre = 'Fantasy · Romance · Comedy';
-      this.beschreibung = 'Ein Dämon und eine Geschäftsfrau kommen sich auf unerwartete Weise näher.';
-   
-    }
+        const drama = data.find(
+          d => String(d._id) === String(id)
+        );
 
-    if (dramaName === 'bon-appetit-your-majesty') {
-      this.name = 'Bon Appétit, Your Majesty';
-      this.status = 'Schaue ich gerade 👀';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '12';
-      this.genre = 'Romance · Historical · Fantasy';
-      this.beschreibung = 'Eine Köchin findet sich plötzlich in einer außergewöhnlichen Welt wieder.';
-    
-    }
+        console.log('GEFUNDEN:', drama);
 
-    if (dramaName === 'business-proposal') {
-      this.name = 'Business Proposal';
-      this.status = 'Geschaut ✅';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '12';
-      this.genre = 'Romance · Comedy';
-      this.beschreibung = 'Ein Blind Date entwickelt sich zu einer überraschenden Liebesgeschichte.';
-    
-    }
+        if (drama) {
 
-    if (dramaName === 'alchemy-of-souls') {
-      this.name = 'Alchemy of Souls';
-      this.status = 'Geschaut ✅';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '20';
-      this.genre = 'Fantasy · Romance · Action';
-      this.beschreibung = 'Eine magische Geschichte über Liebe, Schicksal und Seelenwechsel.';
-     
-    }
+          this.dramaId = drama._id;
+          this.name = drama.name;
+          this.status = drama.status;
+          this.bewertung = String(drama.bewertung);
+          this.folgen = String(drama.folgen);
+          this.genre = drama.genre;
+          this.beschreibung = drama.beschreibung;
 
-    if (dramaName === 'twinkling-watermelon') {
-      this.name = 'Twinkling Watermelon';
-      this.status = 'Geschaut ✅';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '16';
-      this.genre = 'Romance · Fantasy · Music';
-      this.beschreibung = 'Ein junger Musiker reist durch die Zeit und entdeckt seine Familie und die Liebe.';
-    }
-
-    if (dramaName === 'twinkling-watermelon') {
-    this.name = 'Twinkling Watermelon';
-    this.status = 'Geschaut ✅';
-    this.bewertung = '⭐⭐⭐⭐⭐';
-    this.folgen = '16';
-    this.genre = 'Romance · Fantasy · Music';
-    this.beschreibung = 'Ein junger Musiker reist durch die Zeit und entdeckt seine Familie und die Liebe.';
-    
-   }
-
-    if (dramaName === 'true-beauty') {
-      this.name = 'True Beauty';
-      this.status = 'Schaue ich gerade 👀';
-      this.bewertung = '⭐⭐⭐⭐⭐';
-      this.folgen = '16';
-      this.genre = 'Romance · Comedy · School';
-      this.beschreibung = 'Eine Schülerin entdeckt mit Make-up eine neue Seite an sich und findet unerwartete Liebe.';
-      
-    }
-
+          // Angular sofort aktualisieren
+          this.cdr.detectChanges();
+        }
+      });
   }
 
+  speichern() {
+
+    const daten = {
+      name: this.name,
+      status: this.status,
+      bewertung: Number(this.bewertung),
+      folgen: Number(this.folgen),
+      genre: this.genre,
+      beschreibung: this.beschreibung
+    };
+
+    this.http.put(
+      'http://localhost:3000/dramas/' + this.dramaId,
+      daten
+    ).subscribe(() => {
+
+      console.log('Drama erfolgreich gespeichert!');
+
+    });
+  }
 }
+
+
+
+
+
+
+

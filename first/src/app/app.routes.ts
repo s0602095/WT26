@@ -30,16 +30,14 @@ export const routes: Routes = [
     component: DramaDetail
   },
 
-  // Bearbeiten mit Drama-Namen
-  {
-    path: 'edit-drama/:name',
-    component: EditDrama
-  },
-
   // Löschen mit Drama-Namen
   {
     path: 'delete-drama/:name',
     component: DeleteDrama
+  },
+  {
+  path: 'edit-drama/:id',
+  component: EditDrama
   }
 
 ];

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-delete-drama',
@@ -11,47 +12,60 @@ import { ActivatedRoute, RouterLink } from '@angular/router';
 export class DeleteDrama {
 
   name = '';
+  dramaId = '';
 
-  constructor(private route: ActivatedRoute) {
+  constructor(
+    private route: ActivatedRoute,
+    private http: HttpClient,
+    private router: Router
+  ) {
 
-    const dramaName = this.route.snapshot.paramMap.get('name');
+    // ID des Dramas aus der URL holen
+    const id = this.route.snapshot.paramMap.get('id');
 
-    if (dramaName === 'twinkling-watermelon') {
-      this.name = 'Twinkling Watermelon';
-    }
+    // ID speichern, damit wir das richtige Drama löschen können
+    this.dramaId = id || '';
 
-    if (dramaName === 'lovely-runner') {
-      this.name = 'Lovely Runner';
-    }
+    // Alle Dramas vom Backend laden
+    this.http.get<any[]>('http://localhost:3000/dramas')
+      .subscribe(data => {
 
-    if (dramaName === 'my-bias-my-boss') {
-      this.name = 'My Bias, My Boss';
-    }
+        // Drama mit der passenden ID suchen
+        const drama = data.find(
+          d => String(d._id) === String(id)
+        );
 
-    if (dramaName === 'agent-kim-reactivated') {
-      this.name = 'Agent Kim Reactivated';
-    }
-
-    if (dramaName === 'my-demon') {
-      this.name = 'My Demon';
-    }
-
-    if (dramaName === 'bon-appetit-your-majesty') {
-      this.name = 'Bon Appétit, Your Majesty';
-    }
-
-    if (dramaName === 'business-proposal') {
-      this.name = 'Business Proposal';
-    }
-
-    if (dramaName === 'alchemy-of-souls') {
-      this.name = 'Alchemy of Souls';
-    }
-
-    if (dramaName === 'true-beauty') {
-      this.name = 'True Beauty';
-    }
-
+        if (drama) {
+          // Namen des Dramas anzeigen
+          this.name = drama.name;
+        }
+      });
   }
 
+loeschen() {
+
+  // Drama aus MongoDB löschen
+  this.http.delete(
+    'http://localhost:3000/dramas/' + this.dramaId
+  ).subscribe({
+    
+    next: () => {
+
+      // Erfolgsmeldung anzeigen
+      alert('✅ Drama erfolgreich gelöscht!');
+
+      // Zurück zur Drama-Liste
+      this.router.navigate(['/dramas']);
+
+    },
+
+    error: (error) => {
+
+      console.log('Fehler beim Löschen:', error);
+
+      alert('❌ Drama konnte nicht gelöscht werden!');
+
+    }
+  });
+}
 }

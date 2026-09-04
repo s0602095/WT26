@@ -40,3 +40,33 @@
   color: white;
   box-shadow: 0 4px 12px #a855f755;
 }
+
+/* Responsive Design */
+@media (max-width: 800px) {
+
+    .navbar {
+        height: auto;
+        padding: 15px 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .logo {
+        font-size: 20px;
+    }
+
+    .nav-links a {
+        font-size: 13px;
+        padding: 8px 10px;
+    }
+}

@@ -30,14 +30,16 @@ export const routes: Routes = [
     component: DramaDetail
   },
 
-  // Löschen mit Drama-Namen
+  // Löschen mit der MongoDB-ID
   {
-    path: 'delete-drama/:name',
+    path: 'delete-drama/:id',
     component: DeleteDrama
   },
+
+  // Bearbeiten mit der MongoDB-ID
   {
-  path: 'edit-drama/:id',
-  component: EditDrama
+    path: 'edit-drama/:id',
+    component: EditDrama
   }
 
 ];

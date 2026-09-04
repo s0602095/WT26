@@ -122,3 +122,65 @@
     border-radius: 10px;
     margin-left: 20px;
 }
+
+/* Responsive Design für Tablets */
+@media (max-width: 800px) {
+
+    .dramas-page {
+        padding: 30px 20px;
+    }
+
+    .drama-container {
+        grid-template-columns: 1fr;
+        max-width: 600px;
+    }
+
+    .filters {
+        flex-wrap: wrap;
+    }
+}
+
+
+/* Responsive Design für Handys */
+@media (max-width: 500px) {
+
+    .dramas-page {
+        padding: 25px 15px;
+    }
+
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .page-header p {
+        font-size: 15px;
+    }
+
+    .filters {
+        gap: 8px;
+    }
+
+    .filters button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .drama-card {
+        padding: 18px;
+    }
+
+    .drama-card h2 {
+        font-size: 18px;
+    }
+
+    .drama-card img {
+        width: 70px;
+        height: 95px;
+        margin-left: 12px;
+    }
+
+    .drama-card button {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+}
